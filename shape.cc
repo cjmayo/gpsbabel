@@ -25,7 +25,7 @@
 #include <QtCore/QVector>
 
 #include "defs.h"
-#include "shapelib/shapefil.h"
+#include <shapefil.h>
 #include <cstdlib>
 
 #if !SHAPELIB_INHIBITED

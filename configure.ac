@@ -104,16 +104,16 @@ AC_ARG_WITH([shapelib],
 		[--with-shapelib=(included)|system|no],
 		[])])
 AS_CASE([$with_shapelib], ["system"], [
-	AC_CHECK_LIB([shp], [SHPOpenLL])
+	PKG_CHECK_MODULES([SHAPELIB], [shapelib])
 ], ["no"], [
 	AC_DEFINE(SHAPELIB_INHIBITED, 1, [1 to inhibit our use of libshp.])
 	AC_MSG_RESULT([no])
 ], [
-	SHAPELIB_CPP="-I\$(srcdir)/shapelib"
+	SHAPELIB_CFLAGS="-I\$(srcdir)/shapelib"
 	SHAPELIB="\$(SHAPELIB)"
 	AC_MSG_RESULT([using included version])
 ])
-AC_SUBST(SHAPELIB_CPP)
+AC_SUBST(SHAPELIB_CFLAGS)
 AC_SUBST(SHAPELIB)
 
 AC_MSG_CHECKING([whether to support zlib])
